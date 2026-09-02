@@ -1,7 +1,7 @@
 # Dashboard de logs
 
 Dashboard frontend desenvolvido com React e Vite para acompanhar as
-verificações de disponibilidade da API Express.
+verificações de disponibilidade da API Express .
 
 Dashboard em React (Vite) para acompanhar, em forma de log, as verificações
 feitas na API Express hospedada em
