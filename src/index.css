@@ -1,0 +1,40 @@
+:root {
+  --bg: #1a1613;
+  --panel: #221d18;
+  --panel-raised: #29231d;
+  --cell: #1d1812;
+  --line: #3a322a;
+  --text: #efe7d8;
+  --text-dim: #b3a794;
+  --text-faint: #7a7061;
+  --amber: #ffb000;
+  --amber-dim: #b57e00;
+  --red: #ff5c4d;
+  --grey: #6b6355;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: radial-gradient(120% 100% at 50% -10%, #26201a 0%, var(--bg) 55%);
+  color: var(--text);
+  font-family: 'IBM Plex Mono', monospace;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--amber);
+}
+
+code {
+  color: var(--text-dim);
+}
