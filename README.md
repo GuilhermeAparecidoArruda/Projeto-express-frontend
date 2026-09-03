@@ -1,108 +1,111 @@
-# Dashboard de Logs
+<div align="center">
 
-Frontend desenvolvido com React e Vite para acompanhar a disponibilidade da
-API Express do projeto.
+# Dashboard de Logs da API
 
-- API monitorada: [projeto-express-backend-1.onrender.com](https://projeto-express-backend-1.onrender.com)
-- Backend: [Projeto-express-backend](https://github.com/GuilhermeAparecidoArruda/Projeto-express-backend)
+**Monitoramento visual, simples e persistente para uma API Express.**
 
-## Como funciona
+[![React](https://img.shields.io/badge/React-19-149eca?logo=react&logoColor=white)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-8-646cff?logo=vite&logoColor=white)](https://vite.dev/)
+[![Recharts](https://img.shields.io/badge/Recharts-3-22b5bf)](https://recharts.org/)
+[![License](https://img.shields.io/badge/license-private-lightgrey)](#)
 
-A API possui a rota `GET /`, que retorna uma mensagem de status e a data/hora
-do servidor. A cada consulta, o dashboard cria um registro local contendo:
+</div>
 
-- horário da chamada feita pelo navegador;
-- data/hora retornada pela API;
-- status da requisição;
-- latência medida.
+## Visão geral
 
-Os registros são armazenados no `localStorage` e permanecem disponíveis após
-recarregar a página.
+Este projeto é o frontend do Projeto Express. Ele consulta a API, mede o
+tempo de resposta e transforma cada verificação em um registro visual para
+acompanhar a saúde do serviço em tempo real.
 
-## Funcionalidades
+> A API monitorada está hospedada em
+> [projeto-express-backend-1.onrender.com](https://projeto-express-backend-1.onrender.com).
 
-- Indicadores de total de registros, uptime, latência média e último registro.
-- Gráfico de latência ao longo do tempo.
-- Distribuição de chamadas online e offline.
-- Busca e filtro por status na tabela de logs.
-- Exportação dos registros em CSV.
-- Registro manual ou automático a cada 10, 30 ou 60 segundos.
-- Limpeza do histórico local.
+## O que você pode acompanhar
 
-## Tecnologias
+| Recurso | Descrição |
+| --- | --- |
+| Indicadores | Total de registros, uptime, latência média e última verificação |
+| Latência | Gráfico com a evolução do tempo de resposta |
+| Status | Distribuição entre chamadas online e offline |
+| Histórico | Tabela com busca e filtro por status |
+| Exportação | Download dos registros em formato CSV |
+| Automação | Verificações manuais ou a cada 10, 30 ou 60 segundos |
+| Persistência | Histórico salvo no `localStorage` do navegador |
 
-- React 19
-- Vite 8
-- Recharts
-- Oxlint
+## Como os registros são gerados
 
-## Pré-requisitos
+A API disponibiliza a rota `GET /`, que retorna uma mensagem de status e a
+data/hora do servidor. O dashboard registra, no navegador:
 
-- Node.js 20.19 ou superior;
-- npm instalado com o Node.js.
+- o horário em que a chamada foi realizada;
+- a data/hora retornada pela API;
+- o resultado da requisição;
+- a latência medida.
 
-## Instalação
+O histórico é construído no lado do cliente porque o backend ainda não possui
+um endpoint dedicado de logs.
 
-Clone o repositório e entre na pasta do projeto:
+## Stack
+
+- **React 19** para a interface;
+- **Vite 8** para desenvolvimento e build;
+- **Recharts** para visualização de dados;
+- **Oxlint** para análise estática do código.
+
+## Começando
+
+### Pré-requisitos
+
+- Node.js `20.19` ou superior;
+- npm, instalado junto com o Node.js.
+
+### Instalação
 
 ```bash
 git clone https://github.com/GuilhermeAparecidoArruda/Projeto-express-frontend.git
 cd Projeto-express-frontend
-```
-
-Instale as dependências:
-
-```bash
 npm install
 ```
 
-## Desenvolvimento
-
-Inicie o servidor local:
+### Desenvolvimento
 
 ```bash
 npm run dev
 ```
 
-Depois, acesse [http://localhost:5173](http://localhost:5173). Para encerrar
-o servidor, pressione `Ctrl+C` no terminal.
+Abra [http://localhost:5173](http://localhost:5173) no navegador. Se essa
+porta estiver ocupada, o Vite informará automaticamente outra porta disponível.
 
-Se a porta `5173` estiver ocupada, o Vite informará outra porta disponível.
+Para encerrar o servidor, pressione `Ctrl+C` no terminal.
 
-## Validação e produção
+## Scripts disponíveis
 
-Verifique o código com o lint:
+| Comando | Finalidade |
+| --- | --- |
+| `npm run dev` | Inicia o servidor de desenvolvimento |
+| `npm run lint` | Verifica problemas de lint |
+| `npm run build` | Gera o build otimizado em `dist/` |
+| `npm run preview` | Executa localmente o build de produção |
 
-```bash
-npm run lint
-```
-
-Gere a versão de produção:
-
-```bash
-npm run build
-```
-
-Visualize o build localmente:
-
-```bash
-npm run preview
-```
-
-## Estrutura principal
+## Estrutura do projeto
 
 ```text
 src/
-├── App.jsx                     # layout principal
-├── App.css                     # estilos do dashboard
+├── App.jsx                     # composição principal do dashboard
+├── App.css                     # estilos da aplicação
 ├── index.css                   # estilos globais
-├── components/                 # componentes visuais
-├── hooks/                      # logs e atualização automática
-└── lib/                        # configuração e estatísticas
+├── components/                 # gráficos, tabela, indicadores e barra superior
+├── hooks/                      # chamadas à API e atualização automática
+└── lib/                        # configuração e cálculo das estatísticas
 ```
 
-## Próximos passos
+## Backend relacionado
 
-Caso o backend passe a oferecer um endpoint dedicado de logs, a lógica de
-`src/hooks/useApiLogger.js` poderá ser adaptada para consumir esses dados. Os
-componentes de indicadores, gráfico e tabela já estão separados dessa origem.
+O código da API Express está disponível no repositório
+[Projeto-express-backend](https://github.com/GuilhermeAparecidoArruda/Projeto-express-backend).
+
+## Próximas evoluções
+
+Quando o backend disponibilizar um endpoint dedicado de logs, a origem dos
+dados poderá ser alterada em `src/hooks/useApiLogger.js`. Os componentes de
+indicadores, gráfico e tabela já estão desacoplados dessa implementação.
