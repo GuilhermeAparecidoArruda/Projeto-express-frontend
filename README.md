@@ -4,6 +4,8 @@
 
 **Monitoramento visual, simples e persistente para uma API Express.**
 
+[**Acessar o dashboard publicado**](https://projeto-express-frontend.vercel.app/)
+
 [![React](https://img.shields.io/badge/React-19-149eca?logo=react&logoColor=white)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-8-646cff?logo=vite&logoColor=white)](https://vite.dev/)
 [![Recharts](https://img.shields.io/badge/Recharts-3-22b5bf)](https://recharts.org/)
@@ -53,6 +55,16 @@ um endpoint dedicado de logs.
 - **Oxlint** para análise estática do código.
 
 ## Começando
+
+### Deploy
+
+A versão publicada está disponível na Vercel:
+
+**[https://projeto-express-frontend.vercel.app/](https://projeto-express-frontend.vercel.app/)**
+
+O deploy é servido como uma aplicação frontend estática. Para publicar uma
+nova versão na Vercel, faça o push das alterações para o repositório conectado
+ao projeto.
 
 ### Pré-requisitos
 
